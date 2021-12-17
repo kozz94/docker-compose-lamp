@@ -1,0 +1,123 @@
+.register_button{
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.car_mini_details{
+    float: left;
+    border: 1px solid black;
+    margin: 1% 2% 2.5% 2%;
+    padding: 10px;
+    text-align: center;
+    width: 210px;
+    height: 240px;
+    box-shadow: 20px 20px 10px grey;
+}
+
+.profile_picture {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-bottom: 3px;
+}
+
+.car_details{
+    color:black;
+    margin: 0 0 10px;
+}
+
+img {
+    margin: 5px 0px 20px 0px;
+}
+
+#form_header {
+    border-bottom: 3px solid black;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
+#p1 {
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+    margin: 0 0 70px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label, ::placeholder {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#button {
+    margin-top: 20px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#serching{
+    padding-left: 2%;
+}
+
+.pagination {
+    float: left;
+    clear: both;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: black;
+    margin-top: 35px;
+}
+
+.profil_picture_details {
+    margin: 1% 2% 2.5% 2%;
+    text-align: center;
+    width: 210px;
+    height: 240px;
+    position: relative;
+    left: 30%;
+}
+
+#profile_picture_delete{
+    float:left;
+}
+
+.description {
+    text-align: center;
+    font-size: 20px;
+}
+
+#p2 {
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.description2 {
+    text-align: justify;
+    font-size: 20px;
+}
+
+h5{
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0 0 70px;
+}

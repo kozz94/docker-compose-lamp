@@ -1,66 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>LAMP STACK</title>
-        <link rel="stylesheet" href="/assets/css/bulma.min.css">
-    </head>
-    <body>
-        <section class="hero is-medium is-info is-bold">
-            <div class="hero-body">
-                <div class="container has-text-centered">
-                    <h1 class="title">
-                        LAMP STACK
-                    </h1>
-                    <h2 class="subtitle">
-                        Your local development environment
-                    </h2>
-                </div>
-            </div>
-        </section>
-        <section class="section">
-            <div class="container">
-                <div class="columns">
-                    <div class="column">
-                        <h3 class="title is-3 has-text-centered">Environment</h3>
-                        <hr>
-                        <div class="content">
-                            <ul>
-                                <li><?= apache_get_version(); ?></li>
-                                <li>PHP <?= phpversion(); ?></li>
-                                <li>
-                                    <?php
-                                    $link = mysqli_connect("database", "root", $_ENV['MYSQL_ROOT_PASSWORD'], null);
+<?php
+    session_start();
+    if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+        $user_type = $_SESSION['user_type'];
+        switch ($user_type) {
+            case 'admin':
+                header('location: ../index_pages/admin_indexpage.php');
+                break;
 
-/* check connection */
-                                    if (mysqli_connect_errno()) {
-                                        printf("MySQL connecttion failed: %s", mysqli_connect_error());
-                                    } else {
-                                        /* print server version */
-                                        printf("MySQL Server %s", mysqli_get_server_info($link));
-                                    }
-                                    /* close connection */
-                                    mysqli_close($link);
-                                    ?>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <h3 class="title is-3 has-text-centered">Quick Links</h3>
-                        <hr>
-                        <div class="content">
-                            <ul>
-                                <li><a href="/phpinfo.php">phpinfo()</a></li>
-                                <li><a href="http://localhost:<? print $_ENV['PMA_PORT']; ?>">phpMyAdmin</a></li>
-                                <li><a href="/test_db.php">Test DB Connection with mysqli</a></li>
-                                <li><a href="/test_db_pdo.php">Test DB Connection with PDO</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            case 'company':
+                header('location: ../index_pages/company_indexpage.php');
+                break;
+
+            case 'customer':
+                header('location: ../index_pages/customer_indexpage.php');
+                break;
+        }
+
+    }else{
+        if(isset($_SESSION["user_id"])){
+            session_destroy();
+        }
+    }
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bérbead kölcsönző</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <!--<link rel="stylesheet" type="text/css" href="css/index.css">-->
+</head>
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" id="main_brand" href="#">Bérbead kölcsönző</a>
             </div>
-        </section>
+            <ul class="nav navbar-nav">
+                <li class="options"><a class="color_to_black" href="registration/company_reg.php">Cég regisztráció</a></li>
+                <li class="options"><a class="color_to_black" href="registration/customer_reg.php">Ügyfél regisztráció</a></li>
+            </ul>
+            <div>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="options"><a class="color_to_black" href="login/login.php"><span class="glyphicon glyphicon-log-in"></span> Bejelentkezés</a></li>
+           </ul>
+            </div>
+        </nav>
     </body>
-</html>
+</html> 
